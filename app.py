@@ -142,7 +142,7 @@ def edit(movie_id):
     if request.method == 'POST':  # 处理编辑表单的提交请求
         title = request.form['title']
         year = request.form['year']
-        if (not title) or (not year) or (len(year) > 4) or (len(title) > 60):
+        if not title or not year or len(year) > 4 or len(title) > 60:
             flash('Invalid input.')
             return redirect(url_for('edit', movie_id=movie_id))  # 重定向回对应的编辑页面
         movie.title = title  # 更新标题
